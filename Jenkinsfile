@@ -6,9 +6,9 @@ pipeline {
     
     environment {
         MYSQL_DATABASE          = 'chattingo'
-        CORS_ALLOWED_ORIGINS    = 'http://chattingo.virajdalave.shop,http://127.0.0.1:3000'
+        CORS_ALLOWED_ORIGINS    = 'http://chattingo.virajdalave.shop'
         CORS_ALLOWED_METHODS    = 'GET,POST,PUT,DELETE'
-        REACT_APP_API_URL       = 'http://72.60.111.84:8080'
+        REACT_APP_API_URL       = 'https://chattingo.virajdalave.shop/api'
     }
 
     stages {
@@ -32,13 +32,22 @@ pipeline {
         
         stage('Filesystem Scan') {
             steps {
-                echo "FS"
+                script {
+                    trivy_fs_scan("./chattingo/backend")
+                    trivy_fs_scan("./chattingo/frontend")
+                }
+                // echo "Scanning filesystem"
+                // sh "trivy fs ./chattingo/backend"
+                // sh "trivy fs ./chattingo/frontend"
             }
         }
         
         stage('Image Scan') {
             steps {
-                echo "IS"
+                script {
+                    trivy_image_scan("virajdalave", "chattingo-app", "${BUILD_NUMBER}")
+                    trivy_image_scan("virajdalave", "chattingo-web", "${BUILD_NUMBER}")
+                }
             }
         }
         
@@ -78,6 +87,15 @@ pipeline {
                 //       docker compose -f ./chattingo/docker-compose.prod.yml up -d
                 //     '''
                 // }
+            }
+        }
+        stage ("Docker cleanup") {
+            steps {
+                script {
+                    def previousBuild = env.BUILD_NUMBER.toInteger() - 1
+                    docker_cleanup("virajdalave", "chattingo-app", "${previousBuild}")
+                    docker_cleanup("virajdalave", "chattingo-web", "${previousBuild}")
+                }
             }
         }
     }
