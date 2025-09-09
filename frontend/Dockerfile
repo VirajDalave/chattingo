@@ -9,6 +9,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ENV REACT_APP_API_URL=http://72.60.111.84:8080
+ENV REACT_APP_WS_URL=http://72.60.111.84:8080/ws
 RUN npm run build
 
 FROM nginx:1.27-alpine AS runtime
