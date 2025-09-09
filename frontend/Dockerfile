@@ -7,6 +7,8 @@ FROM node:18-alpine AS build
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+ENV REACT_APP_API_URL=http://72.60.111.84:8080
 RUN npm run build
 
 FROM nginx:1.27-alpine AS runtime
