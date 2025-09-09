@@ -13,9 +13,7 @@ services:
       - "3306:3306"
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: chattingo-app:latest
     container_name: app
     depends_on:
       - db
@@ -34,9 +32,7 @@ services:
       - chattingo
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: chattingo-web:latest
     container_name: frontend
     depends_on:
       - backend
