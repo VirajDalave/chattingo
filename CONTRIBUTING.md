@@ -454,48 +454,48 @@ docker-compose -f docker-compose.prod.yml restart
 - [-] Stage 2: Build React application
 - [-] Stage 3: Nginx runtime server
 - [-] Copy built files to Nginx
-- [-] Configure Nginx for React routing
-- [-] Expose port 80
+- [ ] Configure Nginx for React routing
+- [ ] Expose port 80
 
 #### **Backend Dockerfile** (3-stage build)
-- [ ] Stage 1: Maven build environment
-- [ ] Stage 2: Build Spring Boot application
-- [ ] Stage 3: JRE runtime
-- [ ] Copy JAR file to runtime
-- [ ] Expose port 8080
-- [ ] Configure startup command
+- [-] Stage 1: Maven build environment
+- [-] Stage 2: Build Spring Boot application
+- [-] Stage 3: JRE runtime
+- [-] Copy JAR file to runtime
+- [-] Expose port 8080
+- [-] Configure startup command
 
 #### **Docker Compose** (Root level)
-- [ ] Define frontend service
-- [ ] Define backend service
-- [ ] Define database service
-- [ ] Configure networking
+- [-] Define frontend service
+- [-] Define backend service
+- [-] Define database service
+- [-] Configure networking
 - [ ] Add health checks
-- [ ] Set environment variables
+- [-] Set environment variables
 
 #### **Nginx Configuration**
-- [ ] Create nginx.conf file
+- [-] Create nginx.conf file
 - [ ] Configure React routing
-- [ ] Set up reverse proxy for API
-- [ ] Configure static file serving
+- [-] Set up reverse proxy for API
+- [-] Configure static file serving
 
 **Scoring**: Single Stage (2), Two Stage (4), Multi Stage (5)
 
 ### **Task 2: Jenkins CI/CD Pipeline (17 Marks)**
 
 #### **Pipeline Stages**
-- [ ] **Git Clone** (2 Marks) - Clone repository from GitHub
-- [ ] **Image Build** (2 Marks) - Build Docker images
-- [ ] **Filesystem Scan** (2 Marks) - Security scan of source code
-- [ ] **Image Scan** (2 Marks) - Vulnerability scan of Docker images
-- [ ] **Push to Registry** (2 Marks) - Push to Docker Hub/Registry
-- [ ] **Update Compose** (2 Marks) - Update docker-compose with new tags
-- [ ] **Deploy** (5 Marks) - Deploy to Hostinger VPS
+- [-] **Git Clone** (2 Marks) - Clone repository from GitHub
+- [-] **Image Build** (2 Marks) - Build Docker images
+- [-] **Filesystem Scan** (2 Marks) - Security scan of source code
+- [-] **Image Scan** (2 Marks) - Vulnerability scan of Docker images
+- [-] **Push to Registry** (2 Marks) - Push to Docker Hub/Registry
+- [-] **Update Compose** (2 Marks) - Update docker-compose with new tags
+- [-] **Deploy** (5 Marks) - Deploy to Hostinger VPS
 
 #### **Additional Requirements**
-- [ ] **Jenkins Shared Library** (3 Marks) - Reusable components
+- [-] **Jenkins Shared Library** (3 Marks) - Reusable components
 - [ ] **GitHub Webhook** - Trigger pipeline on code push
-- [ ] **Automated Testing** - Run tests before deployment
+- [-] **Automated Testing** - Run tests before deployment
 - [ ] **Rollback Capability** - Ability to rollback deployments
 
 ### **Task 3: Documentation (10 Marks)**
@@ -525,18 +525,18 @@ docker-compose -f docker-compose.prod.yml restart
 ### **Task 4: Testing & Validation**
 
 #### **Local Testing**
-- [ ] Docker containers build successfully
-- [ ] Application runs locally
-- [ ] All features work (auth, chat, etc.)
-- [ ] Database connectivity
-- [ ] API endpoints functional
+- [-] Docker containers build successfully
+- [-] Application runs locally
+- [-] All features work (auth, chat, etc.)
+- [-] Database connectivity
+- [-] API endpoints functional
 
 #### **Production Testing**
 - [ ] HTTPS working correctly
-- [ ] Domain accessible
-- [ ] User registration works
-- [ ] User login works
-- [ ] Real-time chat functional
+- [-] Domain accessible
+- [-] User registration works
+- [-] User login works
+- [-] Real-time chat functional
 - [ ] Group chat creation works
 - [ ] Profile management works
 
