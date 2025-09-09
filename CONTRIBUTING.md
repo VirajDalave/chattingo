@@ -450,12 +450,12 @@ docker-compose -f docker-compose.prod.yml restart
 ### **Task 1: Docker Implementation (5 Marks)**
 
 #### **Frontend Dockerfile** (3-stage build)
-- [ ] Stage 1: Node.js build environment
-- [ ] Stage 2: Build React application
-- [ ] Stage 3: Nginx runtime server
-- [ ] Copy built files to Nginx
-- [ ] Configure Nginx for React routing
-- [ ] Expose port 80
+- [-] Stage 1: Node.js build environment
+- [-] Stage 2: Build React application
+- [-] Stage 3: Nginx runtime server
+- [-] Copy built files to Nginx
+- [-] Configure Nginx for React routing
+- [-] Expose port 80
 
 #### **Backend Dockerfile** (3-stage build)
 - [ ] Stage 1: Maven build environment
