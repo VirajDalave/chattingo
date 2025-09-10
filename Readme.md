@@ -236,6 +236,7 @@ docker build -t chattingo-web ./frontend
   Access at localhost:80
 
 ### Deploy using docker-compose (recommended)
+
 #### **Step 1: Edit the Dockerfile**
 ```bash
 #Edit the frontend Dockerfile REACT_APP_API_URL and REACT_APP_WS_URL with your ip address
