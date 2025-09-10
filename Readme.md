@@ -225,7 +225,7 @@ docker build -t chattingo-web ./frontend
   # Generate secure JWT secret (32 bytes = 256 bits)
   openssl rand -base64 32
   #copy this JWT secret
-  docker run -d -p 8080:8080 -e JWT_SECRET=<YOUR JWT SECRET> -e SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/chattingo_db?createDatabaseIfNotExist=true -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=<YOUR DB PASS> -e CORS_ALLOWED_ORIGINS=http://<your-ip-address> -e CORS_ALLOWED_METHODS= --name app chattingo-app
+  docker run -d -p 8080:8080 -e JWT_SECRET=<YOUR JWT SECRET> -e SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/chattingo_db?createDatabaseIfNotExist=true -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=<YOUR DB PASS> -e CORS_ALLOWED_ORIGINS=http://<your-ip-address> -e CORS_ALLOWED_METHODS=* --network chattingo --name app chattingo-app
   
   ```
 - frontend container
