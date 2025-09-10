@@ -454,8 +454,8 @@ docker-compose -f docker-compose.prod.yml restart
 - [-] Stage 2: Build React application
 - [-] Stage 3: Nginx runtime server
 - [-] Copy built files to Nginx
-- [ ] Configure Nginx for React routing
-- [ ] Expose port 80
+- [-] Configure Nginx for React routing
+- [-] Expose port 80
 
 #### **Backend Dockerfile** (3-stage build)
 - [-] Stage 1: Maven build environment
@@ -475,7 +475,7 @@ docker-compose -f docker-compose.prod.yml restart
 
 #### **Nginx Configuration**
 - [-] Create nginx.conf file
-- [ ] Configure React routing
+- [-] Configure React routing
 - [-] Set up reverse proxy for API
 - [-] Configure static file serving
 
@@ -494,8 +494,8 @@ docker-compose -f docker-compose.prod.yml restart
 
 #### **Additional Requirements**
 - [-] **Jenkins Shared Library** (3 Marks) - Reusable components
-- [ ] **GitHub Webhook** - Trigger pipeline on code push
-- [-] **Automated Testing** - Run tests before deployment
+- [-] **GitHub Webhook** - Trigger pipeline on code push
+- [ ] **Automated Testing** - Run tests before deployment
 - [ ] **Rollback Capability** - Ability to rollback deployments
 
 ### **Task 3: Documentation (10 Marks)**
