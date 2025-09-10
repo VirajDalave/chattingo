@@ -2,8 +2,9 @@ services:
   db:
     image: mysql:lts
     container_name: db
-    env_file:
-      - ./backend/.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASS}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
     networks:
       - chattingo
     volumes:
@@ -12,25 +13,31 @@ services:
       - "3306:3306"
 
   backend:
-    image: virajdalave/chattingo-app:latest
-    # build:
-    #   context: ./backend
-    #   dockerfile: Dockerfile
+    # image: virajdalave/chattingo-app:latest
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: app
     depends_on:
       - db
-    env_file:
-      - ./backend/.env
+    environment:
+      - JWT_SECRET=${JWT_SECRET}
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASS}
+      - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS}
+      - CORS_ALLOWED_METHODS=${CORS_ALLOWED_METHODS}
+      - CORS_ALLOWED_HEADERS=*
     ports:
       - "8080:8080"
     networks:
       - chattingo
 
   frontend:
-    image: virajdalave/chattingo-web:latest
-    # build:
-    #   context: ./frontend
-    #   dockerfile: Dockerfile
+    # image: virajdalave/chattingo-web:latest
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: frontend
     depends_on:
       - backend
