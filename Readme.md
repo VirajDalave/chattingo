@@ -103,11 +103,11 @@ Follow **[CONTRIBUTING.md](CONTRIBUTING.md)** for detailed setup instructions.
 ### **Reference Guides**
 - **Detailed Setup & Deployment**: **[CONTRIBUTING.md](CONTRIBUTING.md)**
 
-## 🔧 **YOUR TASKS**
+## 🔧 **MY TASKS**
 
 ### **Task 1: Docker Implementation (5 Marks)**
 
-You need to create these files from scratch:
+Created the following multi-stage Dockerfiles:
 
 #### **Frontend Dockerfile** (3-stage build)
 - Stage 1: Node.js build environment
@@ -126,7 +126,7 @@ Create `docker-compose.yml` to orchestrate all services.
 
 ### **Task 2: Jenkins CI/CD Pipeline (17 Marks)**
 
-Create a `Jenkinsfile` with these stages:
+Created a `Jenkinsfile` with these stages:
 
 ```groovy
 pipeline {
@@ -153,6 +153,9 @@ pipeline {
         }
         stage('Deploy') { 
             // Deploy to Hostinger VPS (5 Marks)
+        }
+         stage('Docker cleanup') { 
+            // Clean previous docker images
         }
     }
 }
