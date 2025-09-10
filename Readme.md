@@ -178,6 +178,83 @@ pipeline {
 
 **Detailed Instructions**: See **[CONTRIBUTING.md](CONTRIBUTING.md)**
 
+## Installation Guide
+
+#### **Step 1: Clone the repository**
+```bash
+# Clone the repository
+git clone https://github.com/VirajDalave/chattingo.git
+cd chattingo
+```
+#### **Step 2: Install docker and docker-compose**
+```bash
+sudo apt-get update
+sudo apt-get install curl gnupg ca-certificates lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+sudo usermod -aG docker $USER && newgrp docker
+```
+
+## Deployment Guide
+
+### Deploy using Docker
+
+#### **Step 1: Build the images**
+```bash
+docker build -t chattingo-app ./backend
+#Edit the frontend Dockerfile REACT_APP_API_URL and REACT_APP_WS_URL with your ip address
+sudo vim frontend/Dockerfile
+docker build -t chattingo-web ./frontend
+```
+#### **Step 2: Start the containers**
+- create network
+  ```bash
+  docker network create chattingo  
+  ```
+  
+- database container
+  ```bash
+  docker run -d -p 3306:3306 --network chattingo -e MYSQL_ROOT_PASSWORD=<YOUR DB PASSWORD> -e MYSQL_DATABASE=chattingo_db --name db mysql:lts
+  ```
+  
+- backend container
+  ```bash
+  # Generate secure JWT secret (32 bytes = 256 bits)
+  openssl rand -base64 32
+  #copy this JWT secret
+  docker run -d -p 8080:8080 -e JWT_SECRET=<YOUR JWT SECRET> -e SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/chattingo_db?createDatabaseIfNotExist=true -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=<YOUR DB PASS> -e CORS_ALLOWED_ORIGINS=http://<your-ip-address> -e CORS_ALLOWED_METHODS= --name app chattingo-app
+  
+  ```
+- frontend container
+  ```bash
+  docker run -d -p 80:80 --network chattingo --name web chattingo-web
+  ```
+- Access the application
+  Access at localhost:80
+
+### Deploy using docker-compose (recommended)
+#### **Step 1: Edit the Dockerfile**
+```bash
+#Edit the frontend Dockerfile REACT_APP_API_URL and REACT_APP_WS_URL with your ip address
+sudo vim frontend/Dockerfile
+```
+#### **Step 2: Edit the docker compose file**
+```bash
+#Edit the environment variable values in docker-compose file from the 'Deploy using Docker' section
+sudo vim docker-compose.yml
+```
+
+#### **Step 3: Deploy the application**
+```bash
+docker compose up -d
+```
+Access at localhost:80
+
+### **For troubleshooting**: See **[CONTRIBUTING.md](CONTRIBUTING.md)**
+
 ## 📱 Application Features
 
 ### Core Functionality
