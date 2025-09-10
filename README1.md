@@ -15,7 +15,7 @@ Transform this vanilla application into a production-ready, containerized system
 - [My Tasks](#-my-tasks)
 - [Installation Guide](#installation-guide)
 - [Deployment Guide](#deployment-guide)
-- [Installation Guide](#for-troubleshooting-see-contributingmd)
+- [Troubleshooting](#for-troubleshooting-see-contributingmd)
 - [Application Features](#-application-features)
 - [Support & Resources](#-support--resources)
 
