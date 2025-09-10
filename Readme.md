@@ -73,6 +73,7 @@ Transform this vanilla application into a production-ready, containerized system
 - **JWT** - Token-based authentication
 - **MySQL** - Database
 
+
 ### DevOps 
 - **Docker** - Containerization of application
 - **Docker Compose** - Multi-container orchestration (frontend, backend and database)
