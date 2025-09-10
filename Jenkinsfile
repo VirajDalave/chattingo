@@ -27,8 +27,8 @@ pipeline {
         stage('Image Build') {
             steps {
                 script {
-                    docker_build('virajdalave','chattingo-app','${BUILD_NUMBER}')
-                    docker_build('virajdalave','chattingo-web','${BUILD_NUMBER}')
+                    docker_build('virajdalave','chattingo-app','${BUILD_NUMBER}','./backend')
+                    docker_build('virajdalave','chattingo-web','${BUILD_NUMBER}','./frontend')
                 }
             }
         }
