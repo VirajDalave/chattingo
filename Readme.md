@@ -2,28 +2,6 @@
 
 A full-stack real-time chat application built with React, Spring Boot, and WebSocket technology. **Your mission**: Containerize this application using Docker and deploy it to Hostinger VPS using Jenkins CI/CD pipeline.
 
-## 🚨 **IMPORTANT: Registration Required**
-
-### **📝 [REGISTER NOW](https://forms.gle/NgNJNg8yQvPaA1Vz9)** 
-**Deadline: September 5, 2025**
-
-**What you need to register:**
-- Your Name
-- Email ID
-- LinkedIn Profile URL
-- GitHub Profile URL
-
-### **📤 [SUBMISSION FORM](https://forms.gle/ww3vPN29JTNRqzM27)**
-**Deadline: September 10, 2025 (11:59 PM)**
-
-### **📂 Repository Access**
-**Repository URL**: https://github.com/iemafzalhassan/chattingo
-- **Currently**: Private repository (registration phase)
-- **Will be public**: After registration closes (Sept 6)
-- **Action Required**: Fork & star the repository once it becomes public
-
----
-
 ## 🎯 **Hackathon Challenge**
 Transform this vanilla application into a production-ready, containerized system with automated deployment!
 
@@ -95,19 +73,17 @@ Transform this vanilla application into a production-ready, containerized system
 - **JWT** - Token-based authentication
 - **MySQL** - Database
 
-### DevOps (Your Tasks)
-- **Docker** - Containerization (YOU BUILD)
-- **Docker Compose** - Multi-container orchestration (YOU BUILD)
-- **Jenkins** - CI/CD pipeline (YOU BUILD)
-- **Nginx** - Web server & reverse proxy (YOU BUILD)
+### DevOps 
+- **Docker** - Containerization of application
+- **Docker Compose** - Multi-container orchestration (frontend, backend and database)
+- **Jenkins** - Automated CICD on GitHub pushes
+- **Nginx** - Web server & reverse proxy
 
 ## 🚀 Quick Start
 
-### **Just Registered? Start Here!**
-
 #### **Step 1: Fork & Clone**
 ```bash
-# Fork this repository on GitHub: https://github.com/iemafzalhassan/chattingo
+# Fork this repository on GitHub: https://github.com/VirajDalave/chattingo
 # Then clone your fork
 git clone https://github.com/YOUR_USERNAME/chattingo.git
 cd chattingo
