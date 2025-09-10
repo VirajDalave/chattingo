@@ -27,8 +27,8 @@ pipeline {
         stage('Image Build') {
             steps {
                 script {
-                    docker_build('virajdalave','chattingo-app','${BUILD_NUMBER}','./chattingo/backend')
-                    docker_build('virajdalave','chattingo-web','${BUILD_NUMBER}', './chattingo/frontend')
+                    docker_build('virajdalave','chattingo-app','${BUILD_NUMBER}')
+                    docker_build('virajdalave','chattingo-web','${BUILD_NUMBER}')
                 }
             }
         }
@@ -36,8 +36,8 @@ pipeline {
         stage('Filesystem Scan') {
             steps {
                 script {
-                    trivy_fs_scan("./chattingo/backend")
-                    trivy_fs_scan("./chattingo/frontend")
+                    trivy_fs_scan("./backend")
+                    trivy_fs_scan("./frontend")
                 }
                 // echo "Scanning filesystem"
                 // sh "trivy fs ./chattingo/backend"
@@ -65,8 +65,8 @@ pipeline {
         
         stage('Update Compose') {
             steps {
-                sh "sed -i 's|chattingo-app:latest|chattingo-app:${BUILD_NUMBER}|g' ./chattingo/docker-compose.prod.yml"
-                sh "sed -i 's|chattingo-web:latest|chattingo-web:${BUILD_NUMBER}|g' ./chattingo/docker-compose.prod.yml"
+                sh "sed -i 's|chattingo-app:latest|chattingo-app:${BUILD_NUMBER}|g' ./docker-compose.prod.yml"
+                sh "sed -i 's|chattingo-web:latest|chattingo-web:${BUILD_NUMBER}|g' ./docker-compose.prod.yml"
             }
         }
         
