@@ -12,12 +12,13 @@ Transform this vanilla application into a production-ready, containerized system
 - [DevOps Workflow](#️-devops-workflow)
 - [Technology Stack](#️-technology-stack)
 - [Quick Start](#-quick-start)
-- [Your Tasks](#-your-tasks)
+- [My Tasks](#-my-tasks)
+- [Installation Guide](#installation-guide)
+- [Deployment Guide](#deployment-guide)
+- [Installation Guide](#for-troubleshooting-see-contributingmd)
 - [Application Features](#-application-features)
-- [Project Structure](#-project-structure)
-- [Submission Requirements](#-submission-requirements)
 - [Support & Resources](#-support--resources)
-- [Judging Criteria](#-judging-criteria)
+
 
 ## 🏆 Hackathon Overview
 
@@ -37,7 +38,8 @@ Transform this vanilla application into a production-ready, containerized system
          │                       │
          └────── WebSocket ──────┘
 ```
-## 🏗️ DevOps Worklow
+## 🏗️ DevOps Workflow
+
 ![alt text](https://github.com/VirajDalave/chattingo/blob/main/DevSecOps%20workflow.png)
 
 ## 🛠️ Technology Stack
