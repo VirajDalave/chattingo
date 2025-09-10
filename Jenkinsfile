@@ -14,10 +14,13 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-                echo "This is cloning the code"
-                sh "git clone https://github.com/VirajDalave/chattingo.git"
-                // git url: "https://github.com/VirajDalave/chattingo.git", branch: "main"
-                echo "Code cloned successsfully"
+                script {
+                    clone("https://github.com/VirajDalave/chattingo.git","main")                    
+                }
+                // echo "This is cloning the code"
+                // sh "git clone https://github.com/VirajDalave/chattingo.git"
+                // // git url: "https://github.com/VirajDalave/chattingo.git", branch: "main"
+                // echo "Code cloned successsfully"
             }
         }
         
