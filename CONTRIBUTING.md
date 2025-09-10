@@ -592,12 +592,12 @@ docker-compose -f docker-compose.prod.yml restart
 - [ ] Video demo recorded and uploaded
 - [ ] Documentation complete
 - [ ] Submission form filled
-- [ ] GitHub repository public and accessible
+- [-] GitHub repository public and accessible
 
 #### **Quality Assurance**
-- [ ] Code follows best practices
-- [ ] Security measures implemented
-- [ ] Error handling in place
+- [-] Code follows best practices
+- [-] Security measures implemented
+- [-] Error handling in place
 - [ ] Logging configured
 - [ ] Monitoring setup (optional)
 
